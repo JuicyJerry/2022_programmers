@@ -1,0 +1,14 @@
+function solution(n) {
+    let arr = [];
+    let i = 1;
+    while (i <= n) {
+        if (n % i === 0) {
+            arr.push(i);
+        }
+        i++;
+    } 
+    // console.log(arr);
+    
+    let answer = arr.reduce((acc, cur) => acc + cur, 0);
+    return answer;
+}
