@@ -20,8 +20,10 @@ function solution(nums) {
     }
     
     const maxSum = nums.sort((a, b) => b - a).splice(0, 3).reduce((acc, cur) => acc + cur, 0);
-    console.log("combinations: ", combinations, "maxSum: ", maxSum);
-    const arr = new Array(maxSum).fill(1);
+    // console.log("combinations: ", combinations, "maxSum: ", maxSum);
+    const arr = new Array(maxSum + 1).fill(1);
+    // console.log(arr);
+    
     for (let i = 2; i * i <= maxSum; i+=1) {
         if (arr[i]) {
             for (let j = i * i; j <= maxSum; j += i) {
@@ -32,7 +34,11 @@ function solution(nums) {
         
     }
     arr.splice(0, 2, 0, 0);
-    console.log(arr);        
-    const primeNumsCnt = arr.filter((el) => el === 1).length;
-    return primeNumsCnt;
+    // console.log(arr);        
+    const primeNums = [];
+    for (let i = 0; i < combinations.length; i++) {
+        if (arr[combinations[i]] === 1) primeNums.push(combinations[i]);
+    }    
+    // console.log(primeNums);
+    return primeNums.length;
 }
