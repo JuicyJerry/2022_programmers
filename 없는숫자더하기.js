@@ -1,12 +1,10 @@
 function solution(numbers) {
-    let answer = 0;
-    
-    for (let i = 0; i < 10; i++) {
+    numbers.sort((a, b) => a - b);
+    let sum = 0;
+
+    for (let i = 1; i <= 9; i++) {
         let check = numbers.indexOf(i);
-        if (check < 0) answer += i;
+        if (check === -1) sum += i;
     }
-    return answer;
-    
-    
-    
+    return sum;
 }
