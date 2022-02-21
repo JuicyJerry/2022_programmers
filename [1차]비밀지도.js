@@ -24,11 +24,11 @@ function solution(n, arr1, arr2) {
 
     if (arr2[i].length < n) {
       for (let j = 0; j < n - arr2[i].length + 1; j++) {
-        console.log(j);
+        // console.log(j);
         arr2[i].unshift('0');
       }
     }
-    console.log(arr2[i]);
+    // console.log(arr2[i]);     
 
     for (let j = 0; j < n; j++) {
       if (arr1[i][j] === "1") arr1[i][j] = "#";
@@ -63,7 +63,7 @@ function solution(n, arr1, arr2) {
         tMap[i][j] = "";
       }
     }
-    console.log(tMap[i]);
+    // console.log(tMap[i]);  
 
     for (let j = 0; j < n; j++) {
       if (tMap[i][j] === "") {
@@ -72,10 +72,10 @@ function solution(n, arr1, arr2) {
         temp += "#";
       }
     }
-    console.log("temp : ", temp);
+    // console.log("temp : ", temp);
 
     tMap[i] = temp;
   }
-  console.log(tMap);
-
+  // console.log(tMap);  
+  return tMap;
 }
